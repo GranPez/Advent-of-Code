@@ -16,23 +16,23 @@ Of course, your expense report is much larger. Find the two entries that sum to 
 
 let fs = require("fs");
 let path = require('path');
-let numbersPath = path.join(__dirname, 'input.txt'); //create path of input.txt file which contains list of numbers
+let numbersPath = path.join(__dirname, 'input day 1.txt'); //create path of input.txt file which contains list of numbers
 let dataList = fs.readFileSync(numbersPath).toString().split("\n"); //read input.txt and create string with numbers
 let dataInNumbers = dataList.map(x => Number(x)); //convert string to numbers
 
 for (let i = 0; i < dataInNumbers.length; i++) {
+    
     for (let j = i+1; j < dataInNumbers.length; j++) {
-        let a = false;
+      
         if (dataInNumbers[i]+dataInNumbers[j]==2020) {
-            a = true;
+            
             console.log("The numbers are ", dataInNumbers[i], dataInNumbers[j])
             console.log("The multiplication is ", dataInNumbers[i]*dataInNumbers[j])
-            
+            console.log(i,j); 
+            i=j=dataInNumbers.length;                       
         }
-        if (dataInNumbers[i]+dataInNumbers[j]==2020) break;
-     
-    }  
-   
-    
+                        
+    }
+
 }
 
